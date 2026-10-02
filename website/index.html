@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIXO — Minecraft 1.21.4 Fabric 客户端</title>
+<meta name="description" content="HIXO · 面向 Minecraft 1.21.4 (Fabric) 的注入式战斗客户端。预测级移动修正、自适应轮询、原生级渲染。">
+<meta name="theme-color" content="#05070c">
+<meta property="og:title" content="HIXO — Minecraft 1.21.4 Fabric 客户端">
+<meta property="og:description" content="预测级移动修正 · 自适应轮询 · 原生级渲染">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070a11'/%3E%3Cpath d='M18 44V20h6v9h10v-9h6v24h-6v-9H24v9z' fill='%234d8dff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 背景层 -->
+<div class="bg">
+  <div class="bg-aurora a1"></div>
+  <div class="bg-aurora a2"></div>
+  <div class="bg-aurora a3"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+</div>
+<div class="scroll-progress"><span id="scrollBar"></span></div>
+
+<!-- 顶部导航 -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">H</span>
+      <span class="brand-text">HIXO<em>client</em></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#features" data-i18n="nav.features">功能</a>
+      <a href="#modules" data-i18n="nav.modules">模块</a>
+      <a href="#tech" data-i18n="nav.tech">技术</a>
+      <a href="#changelog" data-i18n="nav.changelog">更新日志</a>
+      <a href="#download" data-i18n="nav.download">下载</a>
+      <a href="#faq" data-i18n="nav.faq">常见问题</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="lang" id="langBtn" type="button" aria-label="Language">
+        <span class="lang-ico">◐</span><span id="langLabel">EN</span>
+      </button>
+      <a class="btn btn-sm btn-primary" href="#download" data-i18n="nav.cta">下载客户端</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <div class="badge">
+        <span class="dot"></span>
+        <span data-i18n="hero.badge">Minecraft 1.21.4 · Fabric · 注入式</span>
+      </div>
+
+      <h1>
+        <span data-i18n="hero.h1a">把战斗</span><br>
+        <span class="grad" data-i18n="hero.h1b">做到极致</span>
+      </h1>
+
+      <p class="lead" data-i18n="hero.lead">
+        为 Minecraft 1.21.4 (Fabric) 打造的注入式客户端。预测级移动修正、自适应轮询、
+        原生级渲染 —— 全部装进一个不到 2MB 的注入器里。
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#download">
+          <span data-i18n="hero.cta1">立即下载</span>
+          <svg viewBox="0 0 24 24" class="ico"><path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#modules" data-i18n="hero.cta2">查看 23 个模块</a>
+      </div>
+
+      <ul class="stats">
+        <li><b data-count="23">0</b><span data-i18n="stat.modules">个模块</span></li>
+        <li><b data-count="7">0</b><span data-i18n="stat.cats">个分类</span></li>
+        <li><b>1.21.4</b><span data-i18n="stat.mc">游戏版本</span></li>
+        <li><b>&lt;2<i>ms</i></b><span data-i18n="stat.frame">帧开销</span></li>
+      </ul>
+    </div>
+
+    <!-- 产品图（纯 CSS 复刻内置 GUI，不需要图片） -->
+    <div class="hero-shot reveal" aria-hidden="true">
+      <div class="window" id="mockWindow">
+        <div class="win-bar">
+          <span class="win-dots"><i></i><i></i><i></i></span>
+          <span class="win-title">HIXO <em>ClickGui</em></span>
+          <span class="win-chip">1.21.4</span>
+        </div>
+        <!-- 真实游戏截图：assets/shot.png 存在就自动替换下面的 CSS 复刻 -->
+        <img id="heroShot" class="shot-img" alt="HIXO ClickGui in-game" hidden>
+        <div class="win-body">
+          <div class="win-col">
+            <div class="col-head" data-i18n="mock.cats">分类</div>
+            <div class="col-item on"><span>COMBAT</span><em>5</em></div>
+            <div class="col-item"><span>MOVEMENT</span><em>1</em></div>
+            <div class="col-item"><span>PLAYER</span><em>5</em></div>
+            <div class="col-item"><span>WORLD</span><em>2</em></div>
+            <div class="col-item"><span>RENDER</span><em>8</em></div>
+            <div class="col-item"><span>MISC</span><em>1</em></div>
+          </div>
+          <div class="win-col grow">
+            <div class="col-head">COMBAT</div>
+            <div class="mod on"><span>KillAura</span><i class="sw"></i></div>
+            <div class="mod on"><span>Criticals</span><i class="sw"></i></div>
+            <div class="mod on"><span>VL2</span><i class="sw"></i></div>
+            <div class="mod"><span>AutoThrow</span><i class="sw"></i></div>
+            <div class="mod"><span>Backtrack</span><i class="sw"></i></div>
+          </div>
+          <div class="win-col grow">
+            <div class="col-head">KillAura</div>
+            <div class="opt"><span>Range</span><b>3.0</b></div>
+            <div class="bar"><i style="width:42%"></i></div>
+            <div class="opt"><span>CPS</span><b>9.0</b></div>
+            <div class="bar"><i style="width:62%"></i></div>
+            <div class="opt"><span>CombatMode</span><b>1.8.9</b></div>
+            <div class="opt"><span>Rotation</span><b>Normal</b></div>
+            <div class="tgl on"><span>Players</span><i></i></div>
+            <div class="tgl on"><span>Mobs</span><i></i></div>
+            <div class="tgl"><span>Animals</span><i></i></div>
+          </div>
+        </div>
+        <div class="win-hint" data-i18n="mock.hint">左键开关 · 右键设置 · 中键绑定</div>
+      </div>
+
+      <div class="hud" id="mockHud">
+        <div class="hud-island">
+          <span class="island-dot"></span>
+          <span class="island-title">VL2 · Buffer</span>
+          <span class="island-val">100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>KillAura</span><i>·</i><span>Criticals</span><i>·</i><span>VL2</span><i>·</i><span>Scaffold</span><i>·</i><span>NoSlow</span><i>·</i><span>RotationFix</span><i>·</i><span>Backtrack</span><i>·</i><span>ESP</span><i>·</i><span>TargetHUD</span><i>·</i><span>DynamicIsland</span><i>·</i>
+      <span>KillAura</span><i>·</i><span>Criticals</span><i>·</i><span>VL2</span><i>·</i><span>Scaffold</span><i>·</i><span>NoSlow</span><i>·</i><span>RotationFix</span><i>·</i><span>Backtrack</span><i>·</i><span>ESP</span><i>·</i><span>TargetHUD</span><i>·</i><span>DynamicIsland</span><i>·</i>
+    </div>
+  </div>
+</section>
+
+<!-- 功能 -->
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="feat.eyebrow">CORE FEATURES</div>
+      <h2 data-i18n="feat.title">不是功能堆砌，是工程细节</h2>
+      <p class="sec-sub" data-i18n="feat.sub">每一个模块都按服务端最终的判定逻辑反推实现，而不是靠试参数。</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card-ico">◈</div>
+        <h3 data-i18n="feat.1.t">预测级移动修正</h3>
+        <p data-i18n="feat.1.d">按帧预测轨迹后再修正朝向，静默转头不改变镜头与移动方向，服务端看到的旋转与物理一致。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico">◍</div>
+        <h3 data-i18n="feat.2.t">自适应轮询</h3>
+        <p data-i18n="feat.2.d">根据服务端 tick 与你当前延迟动态决定出手时机，而不是固定 CPS 的机械节奏。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico">◇</div>
+        <h3 data-i18n="feat.3.t">速度处置重构</h3>
+        <p data-i18n="feat.3.d">VL2 支持 Buffer / Jump Reset 等多档模式，减速则用预补偿注入，而不是事后改输入。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico">◆</div>
+        <h3 data-i18n="feat.4.t">原生级渲染</h3>
+        <p data-i18n="feat.4.d">ESP / TargetHUD / 灵动岛全部走原生绘制管线，纹理运行时注册，不依赖任何资源包。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico">◎</div>
+        <h3 data-i18n="feat.5.t">灵动岛 HUD</h3>
+        <p data-i18n="feat.5.d">状态变化实时上岛：击退处置、搭路、目标锁定，一眼看清现在在发生什么。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-ico">⬡</div>
+        <h3 data-i18n="feat.6.t">单文件注入</h3>
+        <p data-i18n="feat.6.d">不写 mods、不改版本目录、不动客户端的任何文件，注入器一个 exe 全部搞定。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 模块 -->
+<section class="sec" id="modules">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="mod.eyebrow">MODULE MATRIX</div>
+      <h2 data-i18n="mod.title">23 个模块，7 个分类</h2>
+      <p class="sec-sub" data-i18n="mod.sub">全部模块都可在游戏内热开关与调参，配置自动保存。</p>
+    </div>
+
+    <div class="tabs" id="modTabs"></div>
+    <div class="mod-grid" id="modGrid"></div>
+  </div>
+</section>
+
+<!-- 实机画面 -->
+<section class="sec showcase" id="showcase">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="show.eyebrow">IN-GAME</div>
+      <h2 data-i18n="show.title">实机画面</h2>
+      <p class="sec-sub" data-i18n="show.sub">HUD 全部走游戏内原生渲染管线，不开任何悬浮覆盖层。</p>
+    </div>
+
+    <div class="shot-frame reveal">
+      <div class="shot-inner">
+        <img src="assets/shot.png" alt="HIXO in-game HUD">
+      </div>
+      <div class="shot-tags">
+        <span class="pill">DynamicIsland</span>
+        <span class="pill">ModuleListHud</span>
+        <span class="pill">PotionHud</span>
+        <span class="pill pill-accent" data-i18n="show.tag">1.21.4 · Fabric</span>
+      </div>
+      <ul class="shot-notes">
+        <li><b data-i18n="show.n1.t">灵动岛</b><span data-i18n="show.n1.d">顶部中央，显示客户端 / 用户名 / 延迟 / 帧率</span></li>
+        <li><b data-i18n="show.n2.t">模块列表</b><span data-i18n="show.n2.d">按分类着色，开关状态实时同步</span></li>
+        <li><b data-i18n="show.n3.t">效果 HUD</b><span data-i18n="show.n3.d">药水计时、目标信息等，可自由拖动</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 技术 -->
+<section class="sec" id="tech">
+  <div class="wrap tech-inner">
+    <div class="tech-copy reveal">
+      <div class="eyebrow" data-i18n="tech.eyebrow">UNDER THE HOOD</div>
+      <h2 data-i18n="tech.title">为什么它跑得比别人稳</h2>
+      <ul class="bullets">
+        <li>
+          <b data-i18n="tech.1.t">网络线程只判断，主线程才落地</b>
+          <span data-i18n="tech.1.d">入站包在 HEAD 阶段只做判定与取消，真正的状态处理交回主线程，和原版同步机制完全一致。</span>
+        </li>
+        <li>
+          <b data-i18n="tech.2.t">出站包在序列化前改写</b>
+          <span data-i18n="tech.2.d">移动、旋转、交互包统一在一个出站钩子里处理，顺序可控，不会出现包序错乱。</span>
+        </li>
+        <li>
+          <b data-i18n="tech.3.t">零额外包</b>
+          <span data-i18n="tech.3.d">可选功能默认复用客户端本就要发出的包，不额外制造流量特征。</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="codecard reveal">
+      <div class="code-head">
+        <span class="win-dots"><i></i><i></i><i></i></span>
+        <span>hixo / runtime</span>
+      </div>
+      <pre><code><span class="c-key">@Inject</span>(method = <span class="c-str">"sendPacket"</span>)
+<span class="c-key">public static void</span> onSendPacket(...) {
+    <span class="c-cmt">// 出站包统一处理：顺序可控</span>
+    <span class="c-fn">doRotationFix</span>(packet);
+    <span class="c-fn">doNoSlow</span>(packet);
+    <span class="c-fn">doVelocity</span>(packet);
+}
+</code></pre>
+      <div class="code-foot">
+        <span class="pill">Fabric</span><span class="pill">1.21.4</span><span class="pill">Java 21</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 下载 -->
+<section class="sec" id="download">
+  <div class="wrap">
+    <div class="dl reveal">
+      <div class="dl-glow"></div>
+      <div class="dl-left">
+        <div class="eyebrow" data-i18n="dl.eyebrow">DOWNLOAD</div>
+        <h2 data-i18n="dl.title">现在就能用</h2>
+        <p data-i18n="dl.sub">下载注入器，双击运行，选择游戏进程即可。首次运行会生成独立配置目录，不污染原版。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="#" id="dlBtn">
+            <span data-i18n="dl.cta">下载 HIXO 注入器</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#faq" data-i18n="dl.cta2">使用问题</a>
+        </div>
+        <p class="dl-note" id="dlNote" data-i18n="dl.note">Windows 10 / 11 · 64 位 · 需要 Java 21 运行环境</p>
+      </div>
+      <div class="dl-right">
+        <div class="meta-row"><span data-i18n="dl.ver">版本</span><b>v1.0.0</b></div>
+        <div class="meta-row"><span data-i18n="dl.build">构建</span><b id="buildStamp">2026-10-01</b></div>
+        <div class="meta-row"><span data-i18n="dl.size">体积</span><b>3.4 MB</b></div>
+        <div class="meta-row"><span data-i18n="dl.target">目标</span><b>1.21.4 Fabric</b></div>
+        <div class="meta-row"><span data-i18n="dl.anti">反检测</span><b>Grim / AAC 适配</b></div>
+        <div class="meta-row"><span data-i18n="dl.hash">校验值</span><b>db5bd6795bbc</b></div>
+        <div class="meta-row" id="dlPassRow" hidden><span data-i18n="dl.pass">提取码</span><b id="dlPassVal">—</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 更新日志 -->
+<section class="sec" id="changelog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="cl.eyebrow">CHANGELOG</div>
+      <h2 data-i18n="cl.title">更新日志</h2>
+      <p class="sec-sub" data-i18n="cl.sub">每一次改动都记录在案，历史版本随时可回滚。</p>
+    </div>
+    <div class="timeline" id="clList"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="faq.eyebrow">FAQ</div>
+      <h2 data-i18n="faq.title">常见问题</h2>
+    </div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark small">H</span>
+      <div>
+        <b>HIXO</b>
+        <span data-i18n="foot.tag">Minecraft 1.21.4 Fabric 客户端</span>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="#features" data-i18n="nav.features">功能</a>
+      <a href="#modules" data-i18n="nav.modules">模块</a>
+      <a href="#download" data-i18n="nav.download">下载</a>
+    </div>
+    <p class="foot-note" data-i18n="foot.note">本页仅用于产品展示与技术交流。请在获得许可的环境中使用。</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
