@@ -1,0 +1,565 @@
+{
+ "decomp/asm/patchify/annotation/At.java": [
+  "HEAD",
+  "TAIL"
+ ],
+ "decomp/asm/patchify/loader/ASMHelpers.java": [
+  "java/lang/Double",
+  "shortValue",
+  "(J)Ljava/lang/Long;",
+  "()Z",
+  "()J",
+  "()C",
+  "()F",
+  "java/lang/Double",
+  "java/lang/Float",
+  "java/lang/Character",
+  "java/lang/Integer",
+  "doubleValue",
+  "java/lang/Boolean",
+  "()D",
+  "longValue",
+  "java/lang/Long",
+  "java/lang/Short",
+  "()S",
+  "(I)Ljava/lang/Integer;",
+  "floatValue",
+  "java/lang/Byte",
+  "java/lang/Character",
+  "java/lang/Object",
+  "(F)Ljava/lang/Float;",
+  "(C)Ljava/lang/Character;",
+  "java/lang/Long",
+  "booleanValue",
+  "(S)Ljava/lang/Short;",
+  "(D)Ljava/lang/Double;",
+  "charValue",
+  "(B)Ljava/lang/Byte;",
+  "valueOf",
+  "java/lang/Integer",
+  "()B",
+  "java/lang/Boolean",
+  "byteValue",
+  "intValue",
+  "(Z)Ljava/lang/Boolean;",
+  "java/lang/Byte",
+  "()I",
+  "java/lang/Float",
+  "valueOf",
+  "java/lang/Short"
+ ],
+ "decomp/asm/patchify/loader/PatchAgent.java": [
+  "agent attached, retransform supported = {}",
+  "oz.instrumentation",
+  "agent not attached; cannot install patches",
+  "Cannot retransform unmodifiable target {}",
+  "Patches already installed; skipping duplicate retransform request",
+  "Retransform failed for {}: {}",
+  "Cannot retransform unmodifiable target {}"
+ ],
+ "decomp/asm/patchify/loader/PatchClassFileTransformer.java": [
+  ".class",
+  "oz.dumpDir",
+  "oz.dumpDir",
+  "Failed to transform {}",
+  "Failed to dump transformed class {}",
+  "Applying patch {} -> {}",
+  "Failed to apply patch {} -> {}"
+ ],
+ "decomp/asm/patchify/loader/PatchRegistry.java": [
+  " is missing @Patch",
+  "Registered patch {} -> {}"
+ ],
+ "decomp/asm/patchify/loader/PatchTransformer.java": [
+  " forwarded parameter(s) but target supplies "
+ ],
+ "decomp/dev/hixo/Hixo.java": [
+  "worldRender",
+  "clientTick",
+  "configLoad",
+  "hudRenderer"
+ ],
+ "decomp/dev/hixo/agent/GameLoaderBridge.java": [
+  "[hixo] bridge defined ",
+  "java.io.tmpdir",
+  "[hixo] redefineModule(java.base/java.lang) failed: ",
+  "start",
+  "java.io.tmpdir",
+  "hixo.resources",
+  "no Instrumentation - did agent attach run first?",
+  ".class",
+  "java.lang",
+  "[hixo] bootstrap loader = ",
+  " classes, resources -> ",
+  "[hixo] bridge FAILED to define ",
+  "[hixo] bridge.load failed:\n",
+  "[hixo] bridge.load jar=",
+  "hixo.resources",
+  "hixo-java.log",
+  "hixo-resources-",
+  "META-INF/",
+  "defineClass",
+  " loader=",
+  "dev.hixo.agent.HixoBootstrap"
+ ],
+ "decomp/dev/hixo/agent/HixoAgent.java": [
+  "[hixo] agent attached. retransform=",
+  "[hixo] waiting for game-loader bridge to call HixoBootstrap.start()",
+  " redefine="
+ ],
+ "decomp/dev/hixo/agent/HixoBootstrap.java": [
+  "[hixo] bootstrap.start",
+  "[hixo] loader = ",
+  "[hixo] client init failed: ",
+  "[hixo] bootstrap.done"
+ ],
+ "decomp/dev/hixo/B/D.java": [
+  "Method ",
+  " not found on "
+ ],
+ "decomp/dev/hixo/B/U.java": [
+  "[hixo] mapping loaded: {} classes, {} methods, {} fields ({} ms)",
+  "hixo.resources",
+  "[hixo] failed to load mappings.tiny: {}"
+ ],
+ "decomp/dev/hixo/B/V.java": [
+  "Index "
+ ],
+ "decomp/dev/hixo/c/C.java": [
+  "(ESC 取消绑定)",
+  " / ",
+  "< ",
+  " / ",
+  "%.",
+  "Hixo",
+  "按一个键绑定 ",
+  "< ",
+  "左键开关 · 右键设置 · 中键绑定 · 拖动 HUD 调位置",
+  "右键一个模块查看它的设置",
+  "Hixo"
+ ],
+ "decomp/dev/hixo/c/u/p.java": [
+  " / ",
+  "%."
+ ],
+ "decomp/dev/hixo/D/a.java": [
+  "[hixo] frame gap: {} ms",
+  " 已关闭",
+  " 已启用"
+ ],
+ "decomp/dev/hixo/D/X.java": [
+  "正在注入… ",
+  "Hixo",
+  "Hixo",
+  "已注入 · Injected"
+ ],
+ "decomp/dev/hixo/D/M/K/a.java": [
+  " ms",
+  " fps",
+  " ms",
+  "Hixo",
+  "Hixo"
+ ],
+ "decomp/dev/hixo/D/M/K/B.java": [
+  "击退 ",
+  "VL2 · ",
+  "  ·  已处理",
+  "  ·  处理中…"
+ ],
+ "decomp/dev/hixo/D/M/K/C.java": [
+  "已启用",
+  "已关闭"
+ ],
+ "decomp/dev/hixo/D/M/K/i.java": [
+  "%.1fm",
+  "%.1f",
+  "  "
+ ],
+ "decomp/dev/hixo/f/B/v.java": [
+  "Low",
+  "Highest",
+  "Lowest",
+  "Normal",
+  "Lower",
+  "High",
+  "Higher"
+ ],
+ "decomp/dev/hixo/f/B/Z.java": [
+  "Off",
+  "Strict",
+  "Normal",
+  "Silent"
+ ],
+ "decomp/dev/hixo/f/K/F.java": [
+  "iron",
+  "Click",
+  "使用",
+  "再来一局",
+  "gold",
+  "选择一个队伍",
+  "传送",
+  "diamond",
+  "点击",
+  "再来",
+  "一刀",
+  "netherite",
+  "点击使用",
+  "Right",
+  "点击",
+  "离开游戏",
+  "stone",
+  "Click",
+  "leather",
+  "chain",
+  "Teleport",
+  "长按点击",
+  "iron",
+  "netherite",
+  "diamond",
+  "一刀"
+ ],
+ "decomp/dev/hixo/M/K.java": [
+  "CLIENT",
+  "MOVEMENT",
+  "Movement",
+  "World",
+  "Render",
+  "MISC",
+  "Client",
+  "COMBAT",
+  "Combat",
+  "PLAYER",
+  "RENDER",
+  "WORLD",
+  "Player",
+  "Misc"
+ ],
+ "decomp/dev/hixo/M/s/A/l.java": [
+  "Hidden Categories",
+  "Flat Panels",
+  "内置 ClickGUI 的风格设置",
+  "Style",
+  "Naven",
+  "Sticker",
+  "ClickGui",
+  "Sticker Margin",
+  "Naven",
+  "Sticker Size"
+ ],
+ "decomp/dev/hixo/M/s/D/F.java": [
+  "Clutch",
+  "掉落时自动在脚下放方块自救"
+ ],
+ "decomp/dev/hixo/M/s/D/O.java": [
+  "Item Spoof",
+  "Swing",
+  "skip: 选中朝向 ",
+  "Telly",
+  "Maximum",
+  " 打不中 "
+ ],
+ "decomp/dev/hixo/M/s/D/U.java": [
+  "Mark Line Color",
+  "None",
+  "Block Slot Mode",
+  "Eagle",
+  "自动打撸",
+  "Block Fly",
+  "None",
+  "Old",
+  "BlockCount Y Offset"
+ ],
+ "decomp/dev/hixo/M/s/H/S.java": [
+  "theUnsafe",
+  "放方块后 pitch 变化量重复 → +0.002",
+  "ACA Perfect Rotation",
+  "Debug",
+  "Grim Duplicate Rot",
+  "ACA AimStep",
+  "转向反检测（ACA / Grim DuplicateRot）",
+  "RotationFix",
+  "[RotationFix] "
+ ],
+ "decomp/dev/hixo/M/s/K/A.java": [
+  "ESP",
+  "Animals",
+  "Players",
+  "Items",
+  "Mobs",
+  "透视显示实体轮廓"
+ ],
+ "decomp/dev/hixo/M/s/K/a_0.java": [
+  "II",
+  "VI",
+  "VIII",
+  "Shadow"
+ ],
+ "decomp/dev/hixo/M/s/K/e.java": [
+  "夜视，提升画面亮度",
+  "NightVision"
+ ],
+ "decomp/dev/hixo/M/s/K/i.java": [
+  "Health: ",
+  "Show Name",
+  "Background",
+  "Health Text",
+  "Flat Face",
+  "TargetHUD",
+  "Style",
+  "Naven",
+  "Preview (no target)",
+  "Info Line",
+  "   Block Rate: ",
+  "Health Bar",
+  "Head Size",
+  "Scale",
+  "Block Rate",
+  "HP: ",
+  " (Baby)",
+  "Show Head",
+  "%.1f",
+  "Naven",
+  "Accent Bar",
+  "Reference",
+  "Reference",
+  "显示杀戮目标血量（可拖动）"
+ ],
+ "decomp/dev/hixo/M/s/K/J.java": [
+  "Show Ping",
+  "DynamicIsland",
+  "Left Aligned",
+  "灵动岛：品牌/服务器/延迟，击杀与反击退时自动变形",
+  "Show Server",
+  "Liquid Glass",
+  "Show FPS",
+  "Show Player"
+ ],
+ "decomp/dev/hixo/M/s/K/M.java": [
+  "Background",
+  "X Offset",
+  "Saturation",
+  "Shadow",
+  "Right",
+  "Hue",
+  "ArrayList"
+ ],
+ "decomp/dev/hixo/M/s/K/p.java": [
+  "Y-Offset",
+  "Vanilla",
+  "1.8.9 打击动画",
+  "Slide",
+  "Speed",
+  "Leaked",
+  "OldHitting",
+  "Animation",
+  "Vanilla",
+  "Size",
+  "Slide",
+  "Leaked"
+ ],
+ "decomp/dev/hixo/M/s/K/U.java": [
+  "ChestESP",
+  "Trapped Chest",
+  "高亮显示箱子",
+  "Chest",
+  "Ender Chest",
+  "Through Walls"
+ ],
+ "decomp/dev/hixo/M/s/O/s.java": [
+  "GrimTick",
+  "Vanilla",
+  "NoC0F",
+  "Keep Sprint",
+  "GrimTick",
+  "GrimJump",
+  "Late Only",
+  "GrimJump",
+  "Food",
+  "NoC0F",
+  "使用物品时不减速（Vanilla / GrimJump / NoC0F-HeyPixel）",
+  "*:rAh",
+  "<(uLjG}/&uH",
+  "1&uJ",
+  ",>z_pCc1-h"
+ ],
+ "decomp/dev/hixo/M/s/S/a.java": [
+  "id",
+  "getId",
+  "Min Range",
+  "Backtrack",
+  "handle",
+  "回溯敌人位置",
+  "Delay(ms)",
+  "Render",
+  "Max Range",
+  "apply"
+ ],
+ "decomp/dev/hixo/M/s/S/j.java": [
+  "[AntiKB] Auto Jump (落地即跳)",
+  " 剩余 ",
+  "Rotate",
+  "[AntiKB] 反击目标 ",
+  "Jump Reset",
+  ") 击退 vy=",
+  "Counter KB",
+  "KB Keep %",
+  "[AntiKB] (",
+  "NoXZ",
+  "%  [会 vl]",
+  "Follow Direction",
+  "[AntiKB] (Jump Reset) 原版击退 vy=",
+  " + 起跳",
+  "Jump Reset",
+  "Cancel",
+  "AntiKB",
+  "Counter Ticks",
+  "Rotate Ticks",
+  "防击退",
+  "Cancel",
+  "Debug",
+  "Mode",
+  "Sprint state Check",
+  "%.3f",
+  "Auto Jump",
+  "Mix",
+  " 保留=",
+  "Attack Amount",
+  " x",
+  "Try Attack",
+  "[AntiKB] 反击 "
+ ],
+ "decomp/dev/hixo/M/s/S/K.java": [
+  "Crit Window Only",
+  "Packet (1.8.9)",
+  "Stop Sprint On Kill",
+  "Cooldown Reset",
+  "Packet (1.8.9)",
+  "Lift (down)",
+  "重置攻击冷却",
+  "[Criticals] ",
+  "Mode",
+  "击杀后松疾跑",
+  "1.8.9 包暴击（改写自身移动包）/ OpenZen 冷却重置",
+  "Stop Sprint",
+  "停疾跑（暴击要求 !isSprinting）",
+  "OpenZen",
+  "OpenZen",
+  "Ground Only",
+  "Criticals",
+  "改写移动包 #",
+  "Hold (ms)",
+  "Debug"
+ ],
+ "decomp/dev/hixo/M/s/S/k_0.java": [
+  "NoXZ",
+  "Shield",
+  "JumpReset",
+  "AntiKnockback",
+  "Reduced",
+  "Sprint Reset",
+  "W-Tap",
+  "防击退，减少被攻击后的位移",
+  "Grim",
+  "Vanilla"
+ ],
+ "decomp/dev/hixo/M/s/S/t.java": [
+  "Ping Comp",
+  "Ray Check",
+  "1.8.9",
+  "Animals",
+  "Mobs",
+  "CPS",
+  "1.9+",
+  "自动攻击周围目标",
+  "Range",
+  "Players",
+  "KillAura",
+  "1.8.9",
+  "CombatMode"
+ ],
+ "decomp/dev/hixo/M/s/S/Y.java": [
+  "Jump Reset 起跳 #",
+  "BufferJumpReset",
+  "Buffer",
+  "grim"
+ ],
+ "decomp/dev/hixo/M/s/S/z.java": [
+  "Min Distance",
+  "Delay(ms)",
+  "AutoThrow",
+  "自动投掷鸡蛋雪球",
+  "Max Distance"
+ ],
+ "decomp/dev/hixo/M/s/Y/e.java": [
+  "Cancel Packets",
+  "Hide Visual",
+  "防砍动画：隐藏攻击挥手动画（1.8.9 NoSwing 等效）",
+  "NoSwing"
+ ],
+ "decomp/dev/hixo/M/s/Y/g.java": [
+  "自动连点，可调节CPS",
+  "AutoClicker"
+ ],
+ "decomp/dev/hixo/M/s/Y/J.java": [
+  "AutoTool",
+  "自动切换到最佳工具挖矿"
+ ],
+ "decomp/dev/hixo/M/s/Y/N.java": [
+  "Sword Slot",
+  "Drop Trash",
+  "Max Rod"
+ ],
+ "decomp/dev/hixo/M/s/Y/T.java": [
+  "Smart Stealing",
+  "container.enderchest",
+  "KillAura",
+  "Chest",
+  "Ender Chest",
+  "Delay",
+  "ChestStealer",
+  "Only Best"
+ ],
+ "decomp/dev/hixo/P/r.java": [
+  "key\t",
+  "slider",
+  "slider\t",
+  "switch\t",
+  "hixo",
+  "key",
+  "enabled",
+  "switch",
+  "enabled\t",
+  "dropdown\t",
+  "dropdown",
+  "modules.txt"
+ ],
+ "decomp/dev/hixo/P/s.java": [
+  "category.hixo"
+ ],
+ "decomp/dev/hixo/P/T.java": [
+  "RIGHT",
+  "F2",
+  "F12",
+  "§c关闭",
+  "RSHIFT",
+  " 已",
+  "SPACE",
+  "F7",
+  "示例: .bind Scaffold G",
+  "§a开启",
+  "===== Hixo 命令 =====",
+  "用法: .toggle <模块名>",
+  "用法: .bind <模块名> <按键>",
+  "KEY_",
+  "UP",
+  "§r] 按键: ",
+  "CAPS",
+  "找不到模块: ",
+  "F5",
+  ".toggle <模块> - 开关模块"
+ ],
+ "decomp/dev/hixo/T/S.java": [
+  "POST",
+  "PRE"
+ ]
+}
